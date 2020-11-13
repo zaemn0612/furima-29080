@@ -9,13 +9,12 @@
 |nickname         | string | null: false |
 |password         | string | null: false |
 |confirm password | string | null: false |
-|family name      | string | null: false |
-|first name       | string | null: false |
-|family name(カナ) | string | null: false |
-|first name(カナ)  | string | null: false |
-|birthday(year)   | string | null: false |
-|birthday(month)  | string | null: false |
-|birthday(day)    | string | null: false |
+|family_name      | string | null: false |
+|first_name       | string | null: false |
+|family_name(カナ) | string | null: false |
+|first_name(カナ)  | string | null: false |
+|birthday         | date    | null: false |
+
 
 ### Association
 
@@ -27,16 +26,16 @@
 | Column          | Type     | Options                      |
 | ----------------| -------- | ---------------------------- |
 |user             |references|null: false, foreign_key: true|
-|商品名            | string   | null: false                  |
-|カテゴリ           | string   | null: false                 |
-|値段              | string   | null: false                  |
-|出品者            | string   | null: false                  |
-|商品の状態         | string   | null: false                  |
-|配送料の負担       | string   | null: false                  |
-|発送元の住所       | string   | null: false                  |
-|発送日の目安       | string   | null: false                  |
-|画像データ         | string   | null: false                  |
-|商品コメント       | string   | null: false                  |
+|product_name     | string   | null: false                  |
+|category         | string   | null: false                 |
+|price            | string   | null: false                  |
+|seller           | string   | null: false                  |
+|product condition| string   | null: false                  |
+|shipping charges | string   | null: false                  |
+|shipping address | string   | null: false                  |
+|estimated shipping date| string   | null: false            |
+|image            | string   | null: false                  |
+|comment          | string   | null: false                  |
 
 ### Association
 
@@ -49,9 +48,9 @@
 | ------ | ---------- | ------------------------------ |
 | user   | references | null: false, foreign_key: true |
 | item   | references | null: false, foreign_key: true |
-|購入者   | string     | null: false                    |
-|購入時期 | string     | null: false                    |
-|購入商品 | string     | null: false                    |
+|purchaser   | string     | null: false                    |
+|when to buy | string     | null: false                    |
+|purchase goods| string     | null: false                    |
 
 ### Association
 
@@ -64,12 +63,12 @@
 | Column    | Type       | Options                        |
 | -------   | ---------- | ------------------------------ |
 | purchases | references | null: false, foreign_key: true |
-|郵便番号    | string     | null: false                  |
-|都道府県    | string     | null: false                  |
-|市区町村    | string     | null: false                  |
-|番地       | string     | null: false                  |
-|建物名     | string     | null: false                  |
-|電話番号    | string     | null: false                  |
+|postal code    | string     | null: false                  |
+|prefectures    | string     | null: false                  |
+|municipality    | string     | null: false                  |
+|address     | string     | null: false                  |
+|building_name     | string     | null: false                  |
+|phone number    | string     | null: false                  |
 
 ### Association
 
