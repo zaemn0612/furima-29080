@@ -26,7 +26,7 @@
 | ----------------| -------- | ---------------------------- |
 |user             |references|null: false, foreign_key: true|
 |product_name     | string   | null: false                  |
-|category         | string   | null: false                 |
+|category_id      | integer   | null: false                 |
 |price            | string   | null: false                  |
 |product_condition_id| integer   | null: false                  |
 |shipping_charges_id | integer   | null: false                  |
@@ -50,7 +50,7 @@
 
 - belongs_to:user
 - belongs_to:item
-- has_many:addresses
+- has_one:address
 
 ## addresses テーブル
 
