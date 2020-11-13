@@ -7,12 +7,11 @@
 | Column          | Type   | Options     |
 | ----------------| ------ | ----------- |
 |nickname         | string | null: false |
-|password         | string | null: false |
-|confirm password | string | null: false |
+|encrypted_password| string | null: false |
 |family_name      | string | null: false |
 |first_name       | string | null: false |
-|family_name(カナ) | string | null: false |
-|first_name(カナ)  | string | null: false |
+|family_name_kana | string | null: false |
+|first_name_kana  | string | null: false |
 |birthday         | date    | null: false |
 
 
@@ -29,12 +28,10 @@
 |product_name     | string   | null: false                  |
 |category         | string   | null: false                 |
 |price            | string   | null: false                  |
-|seller           | string   | null: false                  |
-|product condition| string   | null: false                  |
-|shipping charges | string   | null: false                  |
-|shipping address | string   | null: false                  |
-|estimated shipping date| string   | null: false            |
-|image            | string   | null: false                  |
+|product_condition_id| integer   | null: false                  |
+|shipping_charges_id | integer   | null: false                  |
+|shipping_address_id | integer   | null: false                  |
+|estimated_shipping_date_id| integer   | null: false            |
 |comment          | string   | null: false                  |
 
 ### Association
@@ -48,9 +45,6 @@
 | ------ | ---------- | ------------------------------ |
 | user   | references | null: false, foreign_key: true |
 | item   | references | null: false, foreign_key: true |
-|purchaser   | string     | null: false                    |
-|when to buy | string     | null: false                    |
-|purchase goods| string     | null: false                    |
 
 ### Association
 
@@ -62,13 +56,13 @@
 
 | Column    | Type       | Options                        |
 | -------   | ---------- | ------------------------------ |
-| purchases | references | null: false, foreign_key: true |
-|postal code    | string     | null: false                  |
-|prefectures    | string     | null: false                  |
+|purchase   | references | null: false, foreign_key: true |
+|postal_code| string     | null: false                  |
+|prefecture_id    | integer     | null: false                  |
 |municipality    | string     | null: false                  |
 |address     | string     | null: false                  |
-|building_name     | string     | null: false                  |
-|phone number    | string     | null: false                  |
+|building_name     | string     |                   |
+|phone_number    | string     | null: false                  |
 
 ### Association
 
