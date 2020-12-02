@@ -28,7 +28,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Category can't be blank", "Category is not a number")
       end
       it "カテゴリ情報で「1」を選択すると保存できない" do
-        @item.category_id = '1'
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category must be other than 1")
       end
@@ -38,7 +38,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Product condition can't be blank", "Product condition is not a number")
       end
       it "商品の状態情報で「1」を選択すると保存できない" do
-        @item.product_condition_id = '1'
+        @item.product_condition_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Product condition must be other than 1")
       end
@@ -48,7 +48,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Shipping charges can't be blank", "Shipping charges is not a number")
       end
       it "発送料の負担情報で「1」を選択すると保存できない" do
-        @item.shipping_charges_id = '1'
+        @item.shipping_charges_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping charges must be other than 1")
       end
@@ -58,7 +58,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Shipping address can't be blank", "Shipping address is not a number")
       end
       it "発送元の地域情報で「1」を選択すると保存できない" do
-        @item.shipping_address_id = '1'
+        @item.shipping_address_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping address must be other than 1")
       end
@@ -68,7 +68,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Estimated shipping date can't be blank", "Estimated shipping date is not a number")
       end
       it "発送元までの日数情報で「1」を選択すると保存できない" do
-        @item.estimated_shipping_date_id = '1'
+        @item.estimated_shipping_date_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Estimated shipping date must be other than 1")
       end
@@ -83,12 +83,12 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price 半角英数字", "Price is not a number")
       end
       it "価格情報が300円より少ない範囲は保存できない" do
-        @item.price = '200'
+        @item.price = 200
         @item.valid?
         expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
       end
       it "価格情報が10000000円より多い範囲は保存できない" do
-        @item.price = '10000000'
+        @item.price = 10000000
         @item.valid?
         expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
       end
