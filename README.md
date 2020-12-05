@@ -29,7 +29,7 @@
 |category_id      | integer   | null: false                 |
 |price            | string   | null: false                  |
 |product_condition_id| integer   | null: false                  |
-|shipping_charges_id | integer   | null: false                  |
+|shipping_charge_id | integer   | null: false                  |
 |shipping_address_id | integer   | null: false                  |
 |estimated_shipping_date_id| integer   | null: false            |
 |comment          | string   | null: false                  |
