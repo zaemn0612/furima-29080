@@ -11,12 +11,13 @@ class UserOrder
     validates :municipality, format: { with: /\A[ぁ-んァ-ン一-龥]/	, message: "全角ひらがな、全角カタカナ、漢字"}
     validates :address
     validates :phone_number,format: { with: /\A[0-9]+\z/	, message: "半角数字"}
+    validates :token
   end
 
   # 各テーブルにデータを保存する処理を書く
   def save
    # 購入情報を保存する
-   order = Order.create(user_id: user.id, item_id: item.id) #別途どこからきたんじゃuserなどがどこからきたんじゃ情報を入れる（orderコントローラー）
+   order = Order.create(user_id: user_id, item_id: item_id) #別途どこからきたんじゃuserなどがどこからきたんじゃ情報を入れる（orderコントローラー）
   # 発送先住所を保存する
    Address.create(order_id: order.id, postal_code: postal_code, prefecture_id: prefecture_id, municipality: municipality, address: address, building_name: building_name, phone_number: phone_number)
   end
