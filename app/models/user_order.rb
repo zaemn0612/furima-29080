@@ -1,7 +1,8 @@
 class UserOrder
 
   include ActiveModel::Model
-  attr_accessor :postal_code, :prefecture_id, :municipality, :address, :building_name, :phone_number  # order.idとか入れないといけない。クレジット入れる（コントローラー案件）
+  attr_accessor :postal_code, :prefecture_id, :municipality, :address, :building_name, :phone_number, :token, :user_id, :item_id  # order.idとか入れないといけない。クレジット入れる（コントローラー案件）。使えるようにする。attr_accessorの意味は知りたい
+
 
     # ここにバリデーションの処理を書く
   with_options presence: true do
