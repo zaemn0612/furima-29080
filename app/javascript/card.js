@@ -22,13 +22,13 @@ const pay = () => {
         renderDom.insertAdjacentHTML("beforeend", tokenObj);
       }
 
-      document.getElementById("user_order_number").removeAttribute("name");
-      document.getElementById("user_order_cvc").removeAttribute("name");
-      document.getElementById("user_order_exp_month").removeAttribute("name");
-      document.getElementById("user_order_exp_year").removeAttribute("name");
+      document.getElementById("card-number").removeAttribute("name"); //getElementByIdはid属性を取得する
+      document.getElementById("card-cvc").removeAttribute("name");
+      document.getElementById("card-exp-month").removeAttribute("name");
+      document.getElementById("card-exp-year").removeAttribute("name");
 
       document.getElementById("charge-form").submit();
-      
+
     });
   });
 };
