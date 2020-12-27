@@ -25,11 +25,3 @@ class UserOrder
   end
 end
 
-#下記コードはNG？
-#def save
-  #user = User.create(nickname: nickname,encrypted_password: encrypted_password,family_name: family_name,first_name: first_name,family_name_kana: family_name_kana,first_name_kana: first_name_kana,birthday: birthday)
-  #item = Item.create(user_id: user.id,product_name:product_name,category_id: category_id,price: price,product_condition_id: product_condition_id,shipping_charge_id: shipping_charge_id,shipping_address_id :shipping_address_id,estimated_shipping_date_id: estimated_shipping_date_id,comment: comment)
-  #Order.create(user_id: user.id, item_id: item.id)
-  #Address.create(order_id: order.id, postal_code: postal_code, prefecture_id: prefecture_id,municipality: municipality,address: address,building_name: building_name,phone_number: phone_number)
- #end
-

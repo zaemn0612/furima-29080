@@ -4,11 +4,8 @@ class OrdersController < ApplicationController
 
   def index
     @user_order = UserOrder.new    #フォームオブジェクトのインスタンスを生成し、インスタンス変数に代入する
-    if user_signed_in? && current_user.id == @item.user_id #ログインユーザーと出品者が同じ場合はトップページへ移行
+    if current_user.id == @item.user_id || @item.order.present? #ログインユーザーと出品者が同じ場合はトップページへ移行
      redirect_to root_path
-    end
-    if @item.order.present? #オーダーデータがあれば、トップページへ移行
-      redirect_to root_path
     end
   end
 
