@@ -19,6 +19,9 @@ class ItemsController < ApplicationController
   end
 
   def show
+    if @item.order.present? #買えなくする設定はコントローラーの方がやりやすい。
+    redirect_to root_path
+    end
   end
 
   def edit
