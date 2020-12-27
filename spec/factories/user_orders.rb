@@ -4,7 +4,7 @@ FactoryBot.define do
     prefecture_id           {2}
     municipality            {"浜松市"}
     address                 {"小森町１−１"}
-    phone_number            {123456789}
+    phone_number            {"1234656789"}
     token {"tok_abcdefghijk00000000000000000"}
     building_name           {"松田ハイツ"} 
   end

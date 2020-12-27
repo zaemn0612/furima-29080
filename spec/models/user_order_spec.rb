@@ -70,6 +70,11 @@ RSpec.describe UserOrder, type: :model do
         @user_order.valid?
         expect(@user_order.errors.full_messages).to include("Phone number 半角数字")
       end
+      it "電話番号が12桁以上だと登録できない" do
+        @user_order.phone_number = 123456123456
+        @user_order.valid?
+        expect(@user_order.errors.full_messages).to include("Phone number 10桁と11桁")
+      end
       it "user_idが空では登録できない" do
         @user_order.user_id = nil
         @user_order.valid?
