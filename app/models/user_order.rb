@@ -12,6 +12,8 @@ class UserOrder
     validates :address
     validates :phone_number,format: { with: /\A[0-9]+\z/	, message: "半角数字"}
     validates :token
+    validates :user_id # フォームオブジェクトでは直接アソシエーションを組んでいないためにバリデーションが必要
+    validates :item_id
   end
 
   # 各テーブルにデータを保存する処理を書く

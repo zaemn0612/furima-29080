@@ -1,14 +1,19 @@
 class OrdersController < ApplicationController
-  
+  before_action :authenticate_user!, only: [:index] #未ログインユーザーはログインページに移動
+  before_action :item_params, only: [:index, :create]
+
   def index
     @user_order = UserOrder.new    #フォームオブジェクトのインスタンスを生成し、インスタンス変数に代入する
-    @item = Item.find(params[:item_id]) #コントローラーに記載されていなければ、ヴューに反映されない。ネストしたときはidだけじゃNG。ネストのお作法
+    if user_signed_in? && current_user.id == @item.user_id #ログインユーザーと出品者が同じ場合はトップページへ移行
+     redirect_to root_path
+    end
+    if @item.order.present? #オーダーデータがあれば、トップページへ移行
+      redirect_to root_path
+    end
   end
 
   def create
-    @item = Item.find(params[:item_id])#indexの情報に@itemの情報が有る限り、createする際は@itemの情報が必要（紐づけるために）
     @user_order = UserOrder.new(order_params)
-    # binding.pry
     if @user_order.valid?
       pay_item
       @user_order.save
@@ -19,6 +24,9 @@ class OrdersController < ApplicationController
   end
 
   private
+  def item_params
+    @item = Item.find(params[:item_id])
+  end
 
   def order_params
     params.require(:user_order).permit(:postal_code, :prefecture_id, :municipality, :address, :building_name, :phone_number).merge(user_id: current_user.id,item_id: params[:item_id],token: params[:token])
