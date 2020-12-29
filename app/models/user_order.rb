@@ -10,8 +10,7 @@ class UserOrder
     validates :prefecture_id, numericality: { other_than: 1 }
     validates :municipality, format: { with: /\A[ぁ-んァ-ン一-龥]/	, message: "全角ひらがな、全角カタカナ、漢字"}
     validates :address
-    validates :phone_number,format: { with: /\A[0-9]+\z/	, message: "半角数字"}
-    validates :phone_number,format: { with: /\A\d{10,11}\z/	, message: "10桁と11桁"}
+    validates :phone_number,format: { with: /\A[0-9]+\z/,with: /\A\d{10,11}\z/,message: "半角数字"}
     validates :token
     validates :user_id # フォームオブジェクトでは直接アソシエーションを組んでいないためにバリデーションが必要
     validates :item_id
